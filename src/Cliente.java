@@ -1,5 +1,6 @@
 public class Cliente extends Persona{
     
+    // atributos exclusivos de Cliente
     private String telefono;
     private String direccion;
 

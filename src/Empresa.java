@@ -45,7 +45,11 @@ public class Empresa {
     }
 
     public void mostrarEmpleados(){
-
+        personas.forEach(persona ->{
+            if(persona instanceof Persona){
+                // System.out.println(persona.getNombre());
+            }
+        });
     }
     
     public void mostrarClientes(){
@@ -66,5 +70,5 @@ public class Empresa {
         // agrego a la lista al nuevo cliente
         agregarPersona(cliente);
         return cliente;
-}
+    }
 }
