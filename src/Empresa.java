@@ -10,7 +10,6 @@ public class Empresa {
 
     
     public Empresa(String nombre, String direccion, String cuil, List<Persona> personas) {
-
         this.nombre = nombre;
         this.direccion = direccion;
         this.cuil = cuil;
@@ -37,7 +36,7 @@ public class Empresa {
     }
     
     
-    // metodos
+    /// metodos
 
     // creo un metodo polimorfico para que pueda agregar empleados o clientes
     public void agregarPersona(Persona persona){
@@ -46,8 +45,20 @@ public class Empresa {
 
     public void mostrarEmpleados(){
         personas.forEach(persona ->{
-            if(persona instanceof Persona){
-                // System.out.println(persona.getNombre());
+            // busco mostrar los empleados que NO sean directivos
+            if(persona instanceof Empleado && !(persona instanceof Directivo)){
+                Empleado empleado = (Empleado) persona;
+                System.out.println(empleado);
+            }
+        });
+    }
+
+    // genero un metodo para mostrar los directivos
+    public void mostrarDirectivos(){
+        personas.forEach(persona ->{
+            if (persona instanceof Directivo) { // verifico que cada persona sea instancia de Directivo  
+                Directivo directivo = (Directivo) persona; // si lo es, hago un casteo a persona para que lo trate como Directivo y acceda a sus propiedades
+                System.out.println(directivo); // imprimo directivo
             }
         });
     }
@@ -57,10 +68,18 @@ public class Empresa {
     }
 
     // metodo para crear instancias de empleado
-    public Persona crearEmpleado(String nombre, String apellido, int edad, String email, String sueldo, String categoria){
-            Empleado empleado = new Empleado(nombre, apellido, edad, email, sueldo, categoria);
+    public Persona crearEmpleado(String nombre, String apellido, int edad, String email, int sueldo){
+            Empleado empleado = new Empleado(nombre, apellido, edad, email, sueldo);
             agregarPersona(empleado);
             return empleado;
+    }
+
+    
+    // metodo para crear instancias de directivo
+    public Persona crearDirectivo(String nombre, String apellido, int edad, String email, int sueldo, String categoria){
+        Directivo directivo = new Directivo(nombre, apellido, edad, email, sueldo, categoria);
+        agregarPersona(directivo);
+        return directivo;
     }
 
       // metodo para crear instancias de cliente
