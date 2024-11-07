@@ -1,4 +1,4 @@
-package Model;
+package modelo;
 public class Cliente extends Persona{
     
     // atributos exclusivos de Cliente
@@ -32,5 +32,17 @@ public class Cliente extends Persona{
 
 
 
-
+    @Override
+    public String toString() {
+    return "--------------------------------------------------------\n" +
+           "| Datos del Cliente                               |\n" +
+           "--------------------------------------------------------\n" +
+           "| Nombre: " + getNombre() + "\n" +
+           "| Apellido: " + getApellido() + "\n" +
+           "| Edad: " + getEdad() + "\n" +
+           "| Email: " + getEmail() + "\n" +
+           "| Teléfono: " + getTelefono() + "\n" +
+           "| Dirección: " + getDireccion() + "\n" +
+           "--------------------------------------------------------";
+    }
 }
