@@ -1,3 +1,4 @@
+package Model;
 public class Directivo extends Empleado{
     private String categoria;
 

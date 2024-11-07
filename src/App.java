@@ -1,3 +1,5 @@
+import Model.Empresa;
+
 public class App {
     public static void main(String[] args) throws Exception {
        
@@ -22,5 +24,13 @@ public class App {
         empresaUno.mostrarEmpleados();
         empresaUno.mostrarDirectivos();
                 
+        // me falta crear la clase menu
+        // me falta armar los controladores. el contrlador es el que tiene la potesta de hacer las cosas sobre un objeto y manipularlo
+        // puede haber varios controladores si se desea. 
+
+        // MVC - se pretende que el sistema sea con arquitectura MVC Modelo Vista Controlador. Organizado por carpetas. 
+        // Modelo contendrá las clases de datos (Persona, Empleado, Cliente, Directivo, Empresa).
+        // Vista se encargará de la interacción con el usuario (podría ser la consola en este caso).
+        // Controlador gestionará la lógica de la aplicación y controlará el flujo entre el modelo y la vista.
     }
 }
