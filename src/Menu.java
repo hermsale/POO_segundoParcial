@@ -29,7 +29,12 @@ public final class Menu {
     
                     case 2:
                         System.out.println("Aca muestro empleado");
-                        // empresa.mostrarEmpleados();                       
+                        for (Empresa empresa2 : empresa) {
+                            if (empresa2.getNombre().equals("Tech Solutions")) {
+                                empresa2.mostrarEmpleados();
+                            
+                            }
+                        }             
                         break;
     
                     case 3:
