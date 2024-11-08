@@ -1,12 +1,14 @@
+import java.util.List;
 import java.util.Scanner;
 
-import controlador.EmpresaController;
-
+import modelo.Empresa;
 public final class Menu {
  Scanner sc = new Scanner(System.in);
+
+        
         int opcion;
-        EmpresaController ec = new EmpresaController();
-        public void mostrar(){
+    
+        public void mostrar(List<Empresa> empresa){
 
             do {
                 System.out.println("Bienvenido al Sistema de Gestión de Empresas");
@@ -22,32 +24,30 @@ public final class Menu {
                 switch (opcion) {
                     case 1:
                         System.out.println("Aca muestro empresa");
-                        
+                        System.out.println(empresa);
                         break;
     
                     case 2:
                         System.out.println("Aca muestro empleado");
-                        ec.mostrarEmpleados();
-                        // empresa.mostrarDirectivos();
+                        // empresa.mostrarEmpleados();                       
                         break;
     
                     case 3:
-                    System.out.println("Aca muestro cliente");
+                        System.out.println("Aca muestro cliente");
                         // empresa.mostrarClientes();
                         break;
     
                     case 4:
                     System.out.println("Aca muestro directivo");
-
+                    // empresa.mostrarDirectivos();
                     break;
                     case 5:
-                    System.out.println("Muchas gracias");
+                    System.out.println("Muchas gracias por utilizar la aplicación");
                     break;
                 }
     
                 System.out.println();  // Espacio para la próxima iteración
             } while (opcion != 5);
         }
-        // Empresa empresa = new Empresa("Insumo Acuario", "Hungria 1222", "20-35224895-5", null);
-
+        
 }
