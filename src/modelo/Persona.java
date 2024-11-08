@@ -1,9 +1,8 @@
 package modelo;
-public class Persona {
-    // nombre 
-    // apellido
-    // edad
-    // email
+
+// defino a Persona como abstract ya que nunca será instanciada, solo la utilizo para ser heredada por otras clases
+public abstract class Persona {
+    
     private String nombre;
     private String apellido;
     private int edad;
