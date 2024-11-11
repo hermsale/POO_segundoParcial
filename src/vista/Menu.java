@@ -2,14 +2,22 @@ package vista;
 import java.util.List;
 import java.util.Scanner;
 
+import controlador.ControladorEmpresas;
 import modelo.Empresa;
 public final class Menu {
- Scanner sc = new Scanner(System.in);
-
+    
+        private ControladorEmpresas controladorEmpresas;
         
-        int opcion;
-        int opcionEmpresa;
-        boolean sinResultado=true; // esta variable funciona como bandera para verificar si hubo alguna coincidencia. En caso de no haber coincidencia, reportarlo. 
+        private Scanner sc = new Scanner(System.in);        
+        private int opcion;
+        private int opcionEmpresa;
+        private boolean sinResultado=true; // esta variable funciona como bandera para verificar si hubo alguna coincidencia. En caso de no haber coincidencia, reportarlo. 
+    
+        public Menu(ControladorEmpresas controladorEmpresas) {
+            this.controladorEmpresas = controladorEmpresas;
+        }
+    
+
         public void mostrar(List<Empresa> empresa){
 
             do {
@@ -29,7 +37,8 @@ public final class Menu {
                 switch (opcion) {
                     case 1:
                         System.out.println("Empresas disponibles: ");
-                        System.out.println(empresa);
+                        // System.out.println(empresa);
+                        controladorEmpresas.mostrarEmpresas();
                         pausar();
                         break;
     
@@ -46,7 +55,6 @@ public final class Menu {
                         // si no hubo resultados en la busqueda, se muestra este mensaje
                         if(sinResultado){
                             System.out.println("No se encontraron resultados");
-                            sinResultado=false;
                         }
                         pausar();     
                     break;
@@ -58,12 +66,12 @@ public final class Menu {
                         for (Empresa empresa2 : empresa) {
                             if(empresa2.getid_empresa() == opcionEmpresa){
                                 empresa2.mostrarEmpleados();
+                                sinResultado=false;
                             }
                         }
                          // si no hubo resultados en la busqueda, se muestra este mensaje
                         if(sinResultado){
                             System.out.println("No se encontraron resultados");
-                            sinResultado=false;
                         }
                         pausar();
                     break;
@@ -75,12 +83,12 @@ public final class Menu {
                         for (Empresa empresa2 : empresa) {
                             if(empresa2.getid_empresa() == opcionEmpresa){
                                 empresa2.mostrarClientes();
+                                sinResultado=false;
                             }
                         }
                         // si no hubo resultados en la busqueda, se muestra este mensaje
                         if(sinResultado){
                             System.out.println("No se encontraron resultados");
-                            sinResultado=false;
                         }
                         pausar();
                     break;
@@ -91,12 +99,12 @@ public final class Menu {
                         for (Empresa empresa2 : empresa) {
                             if(empresa2.getid_empresa() == opcionEmpresa){
                                 empresa2.mostrarDirectivos();
+                                sinResultado=false;
                             }
                         }
                         // si no hubo resultados en la busqueda, se muestra este mensaje
                         if(sinResultado){
                             System.out.println("No se encontraron resultados");
-                            sinResultado=false;
                         }
                         pausar();
                     break;
@@ -116,6 +124,7 @@ public final class Menu {
                 }
     
                 System.out.println();  // Espacio para la próxima iteración
+                sinResultado=true; // reinicio la bandera que siga sensando si hay o no coincidencias
             } while (opcion != 6);
         }
  

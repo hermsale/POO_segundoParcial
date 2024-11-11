@@ -1,6 +1,7 @@
 
 import java.util.List;
 
+import controlador.ControladorEmpresas;
 import controlador.Precarga;
 import modelo.Empresa;
 import vista.Menu;
@@ -14,9 +15,9 @@ public class App {
         // Precarga es un metodo estatico, lo que permite utilizar su metodo sin necesidad de ser instanciado
         // uso un metodo para pre cargar los datos y lo guardo en cargaEmpresa
         List<Empresa> cargaEmpresa = Precarga.cargaDatos();
-        
+        ControladorEmpresas controlador = new ControladorEmpresas(cargaEmpresa);
         // Menuse encuentra en carpeta vista, se encarga de mostrar las distintas opciones de muestra de empresa, cliente, empleado, directivo
-        Menu menuPrincipal = new Menu();
+        Menu menuPrincipal = new Menu(controlador);
 
         // le paso a menuPrincipal los datos cargados
         menuPrincipal.mostrar(cargaEmpresa);           
