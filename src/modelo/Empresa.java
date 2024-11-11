@@ -3,17 +3,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Empresa {
+    private int id_empresa;
     private String nombre;
     private String direccion;
     private String cuil;
     private List<Persona> personas; // declaramos un arrayList de Persona
 
     
-    public Empresa(String nombre, String direccion, String cuil, List<Persona> personas) {
+    public Empresa(int id_empresa, String nombre, String direccion, String cuil, List<Persona> personas) {
+        this.id_empresa = id_empresa;
         this.nombre = nombre;
         this.direccion = direccion;
         this.cuil = cuil;
         this.personas = new ArrayList<>(); // inicializamos la lista
+    }
+
+    public int getid_empresa() {
+        return id_empresa;
+    }
+
+    public void setid_empresa(int id_empresa) {
+        this.id_empresa = id_empresa;
     }
 
     public String getNombre() {
@@ -99,17 +109,19 @@ public class Empresa {
         return cliente;
     }
 
-    public Empresa crearEmpresa(String nombre, String direccion, String cuil, List<Persona> personas){
-        Empresa empresa = new Empresa(nombre, direccion, cuil, personas);
+    public Empresa crearEmpresa(int id_empresa, String nombre, String direccion, String cuil, List<Persona> personas){
+        Empresa empresa = new Empresa(id_empresa, nombre, direccion, cuil, personas);
         return empresa;
         
     }
 
     @Override
     public String toString() {
-        return  "--------------------------------------------------------\n" +
-        "| Datos de la Empresa                               |\n" +
+        return  
         "--------------------------------------------------------\n" +
+        "| Datos de la Empresa                                   |\n" +
+        "--------------------------------------------------------\n" +
+        "| ID: " + getid_empresa() + "\n" +
         "| Nombre: " + getNombre() + "\n" +
         "| CUIL: " + getCuil() + "\n" +
         "| Dirección: " + getDireccion() + "\n" +

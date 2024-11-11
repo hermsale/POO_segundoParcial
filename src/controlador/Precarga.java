@@ -7,11 +7,12 @@ import modelo.Empresa;
 
 public class Precarga {
 
+        // Genero esta clase static que funciona para hacer una pre carga de todos los datos necesarios para el correcto funcionamiento de la App
         public static List<Empresa> cargaDatos(){
             List<Empresa> empresas = new ArrayList<Empresa>();
 
-            Empresa empresaUno = new Empresa("Insumo Acuario","Hungria 1222", "20-35224895-5", null);
-            Empresa empresaDos = new Empresa("Tech Solutions", "Av. Siempre Viva 1234", "30-67891234-6", null);
+            Empresa empresaUno = new Empresa(1,"Insumo Acuario","Hungria 1222", "20-35224895-5", null);
+            Empresa empresaDos = new Empresa(2,"Tech Solutions", "Av. Siempre Viva 1234", "30-67891234-6", null);
 
             
             // creo empleados
