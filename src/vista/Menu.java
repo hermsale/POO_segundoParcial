@@ -1,29 +1,29 @@
 package vista;
-import java.util.List;
-import java.util.Scanner;
 
+import java.util.Scanner;
 import controlador.ControladorEmpresas;
-import modelo.Empresa;
 public final class Menu {
     
+    // se crea una referencia interna de controladorEmpresa. 
         private ControladorEmpresas controladorEmpresas;
         
-        private Scanner sc = new Scanner(System.in);        
-        private int opcion;
-        private int opcionEmpresa;
-        private boolean sinResultado=true; // esta variable funciona como bandera para verificar si hubo alguna coincidencia. En caso de no haber coincidencia, reportarlo. 
+        private Scanner sc = new Scanner(System.in);  
+        
+        // variable utilizada para gestionar las distintas opciones 
+        private int opcion; 
     
+        // se recibe la inyeccion de dependencias en el constructor, enviado desde menuPrincipal.mostrar(), para gestionar controladorEmpresas desde Menu
         public Menu(ControladorEmpresas controladorEmpresas) {
             this.controladorEmpresas = controladorEmpresas;
         }
     
 
-        public void mostrar(List<Empresa> empresa){
+        public void mostrar(){
 
             do {
                 System.out.println("----------------------------------------------------------------");
                 System.out.println("Bienvenido al Sistema de Gestión de Empresas");
-                System.out.println(); // 
+                System.out.println(); 
                 System.out.println("1. Mostrar Empresas disponibles");
                 System.out.println("2. Mostrar datos Empresa");
                 System.out.println("3. Mostrar datos Empleados");
@@ -32,85 +32,36 @@ public final class Menu {
                 System.out.println("6. Salir");
                 System.out.print("Seleccione una opción: ");
                 opcion = sc.nextInt();
-                sc.nextLine();  // Limpiar el salto de línea
+                sc.nextLine();  
     
                 switch (opcion) {
                     case 1:
-                        System.out.println("Empresas disponibles: ");
-                        // System.out.println(empresa);
-                        controladorEmpresas.mostrarEmpresas();
+                        controladorEmpresas.mostrarEmpresas(); // muestra todas las empresas cargadas
                         pausar();
                         break;
     
                     case 2:
-                        System.out.println("Ingrese el ID de la empresa que desea obtener detalles");
-                        opcionEmpresa = sc.nextInt();
-                        sc.nextLine();
-                        for (Empresa empresa2 : empresa) {
-                            if(empresa2.getid_empresa() == opcionEmpresa){
-                                System.out.println(empresa2);
-                                sinResultado=false;
-                            }
-                        }  
-                        // si no hubo resultados en la busqueda, se muestra este mensaje
-                        if(sinResultado){
-                            System.out.println("No se encontraron resultados");
-                        }
+                        controladorEmpresas.mostrarEmpresa(); // solicita un ID de una empresa y muestra sus datos
                         pausar();     
                     break;
                     
                     case 3:
-                        System.out.println("Ingrese el ID de la empresa que desea obtener su lista de empleados");
-                        opcionEmpresa = sc.nextInt();
-                        sc.nextLine();
-                        for (Empresa empresa2 : empresa) {
-                            if(empresa2.getid_empresa() == opcionEmpresa){
-                                empresa2.mostrarEmpleados();
-                                sinResultado=false;
-                            }
-                        }
-                         // si no hubo resultados en la busqueda, se muestra este mensaje
-                        if(sinResultado){
-                            System.out.println("No se encontraron resultados");
-                        }
+                        controladorEmpresas.mostrarEmpleados();
                         pausar();
                     break;
                     
                     case 4:
-                        System.out.println("Ingrese el ID de la empresa que desea obtener su lista de clientes");
-                        opcionEmpresa = sc.nextInt();
-                        sc.nextLine();
-                        for (Empresa empresa2 : empresa) {
-                            if(empresa2.getid_empresa() == opcionEmpresa){
-                                empresa2.mostrarClientes();
-                                sinResultado=false;
-                            }
-                        }
-                        // si no hubo resultados en la busqueda, se muestra este mensaje
-                        if(sinResultado){
-                            System.out.println("No se encontraron resultados");
-                        }
+                        controladorEmpresas.mostrarClientes();
                         pausar();
                     break;
+
                     case 5:
-                        System.out.println("Ingrese el ID de la empresa que desea obtener su lista de directivos");
-                        opcionEmpresa = sc.nextInt();
-                        sc.nextLine();
-                        for (Empresa empresa2 : empresa) {
-                            if(empresa2.getid_empresa() == opcionEmpresa){
-                                empresa2.mostrarDirectivos();
-                                sinResultado=false;
-                            }
-                        }
-                        // si no hubo resultados en la busqueda, se muestra este mensaje
-                        if(sinResultado){
-                            System.out.println("No se encontraron resultados");
-                        }
+                        controladorEmpresas.mostrarDirectivos();
                         pausar();
                     break;
 
                     case 6:
-                    System.out.println("Muchas gracias por utilizar la aplicación");
+                    System.out.println("¡Muchas gracias por utilizar la aplicación!");
                     break;
                     
                     default:
@@ -122,9 +73,7 @@ public final class Menu {
                     break;
                     
                 }
-    
-                System.out.println();  // Espacio para la próxima iteración
-                sinResultado=true; // reinicio la bandera que siga sensando si hay o no coincidencias
+                System.out.println();  
             } while (opcion != 6);
         }
  

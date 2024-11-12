@@ -44,15 +44,18 @@ public class Empresa {
     public void setCuil(String cuil) {
         this.cuil = cuil;
     }
-       
-    // obtejo dedicado a crear y mostrar los datos
-    
-    
+          
     /// metodos
 
     // creo un metodo polimorfico para que pueda agregar empleados o clientes
     public void agregarPersona(Persona persona){
         personas.add(persona);
+    }
+
+
+    // devuelve a controladorEmpresas la lista de personas que posee la empresa
+    public List<Persona> getPersonas(){
+        return personas;
     }
 
     public void mostrarEmpleados(){
@@ -123,8 +126,6 @@ public class Empresa {
         "--------------------------------------------------------\n" +
         "| ID: " + getid_empresa() + "\n" +
         "| Nombre: " + getNombre() + "\n" +
-        "| CUIL: " + getCuil() + "\n" +
-        "| Dirección: " + getDireccion() + "\n" +
         "--------------------------------------------------------";
     }
 }
