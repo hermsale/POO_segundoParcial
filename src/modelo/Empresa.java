@@ -72,14 +72,12 @@ public class Empresa {
 
     // este metodo muestra en detalle los datos de una empresa que se busca por ID
     public void mostrarEmpresa(){
-        System.out.println("--------------------------------------------------------\n" +
-                "| Datos de la Empresa                                   |\n" +
-                "--------------------------------------------------------\n" +
-                "| ID: " + getid_empresa() + "\n" +
-                "| Nombre: " + getNombre() + "\n" +
-                "| CUIL: " + getCuil() + "\n" +
-                "| Dirección: " + getDireccion() + "\n" +
-                "--------------------------------------------------------");
+        System.out.println(
+                "----------------------------------------------------------------------------------------------------------------------------\n" +
+                "|                                            Datos de la Empresa                                                            |\n" +
+                "----------------------------------------------------------------------------------------------------------------------------\n" +
+                "| ID: " + getid_empresa() + " | Nombre: " + getNombre() + " | CUIL: " + getCuil() + " | Dirección: " + getDireccion() + "\n" +
+                "----------------------------------------------------------------------------------------------------------------------------");
     }
 
     // genero un metodo para mostrar los directivos
@@ -136,9 +134,8 @@ public class Empresa {
     @Override
     public String toString() {
         return  
-        "\n" +
-        "| ID: " + getid_empresa() + "\n" +
-        "| Nombre: " + getNombre() + "\n" +
-        "--------------------------------------------------------";
+        "\n"+
+        "| ID: " + getid_empresa() + " | Nombre: " + getNombre() + " | \n" +
+        "------------------------------------------------------------";
     }
 }
