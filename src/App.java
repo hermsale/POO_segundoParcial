@@ -16,13 +16,14 @@ public class App {
         // uso un metodo para pre cargar los datos y lo guardo en cargaEmpresa
         List<Empresa> cargaEmpresa = Precarga.cargaDatos();
         
+        // ControladorEmpresas se encuentra en la carpeta CONTROLADOR
         // controladorEmpresas gestiona toda la logica de solicitudes. Se le envia los datos previamente cargados en cargaEmpresa
         ControladorEmpresas controlador = new ControladorEmpresas(cargaEmpresa);
 
-        // Menu se encuentra en carpeta vista, se encarga de mostrar las distintas opciones disponibles: empresas, cliente, empleado, directivo. a su vez, le inyecto el controlador, para que tenga acceso directo a ControladorEmpresa
+        // Menu se encuentra en la carpeta VISTA
+        //  se encarga de mostrar las distintas opciones disponibles: empresas, empresa, cliente, empleado, directivo. a su vez, le inyecto el controlador, para que tenga acceso directo a ControladorEmpresa
         Menu menuPrincipal = new Menu(controlador);
 
-        // le paso a menuPrincipal los datos cargados
         menuPrincipal.mostrar();           
 
     }

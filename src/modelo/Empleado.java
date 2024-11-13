@@ -2,20 +2,20 @@ package modelo;
 public class Empleado extends Persona{
     
     // atributos exclusivos de Emplado 
-    private int sueldo;
+    private double sueldo;
         
-    public Empleado(String nombre, String apellido, int edad, String email, int sueldo) {
+    public Empleado(String nombre, String apellido, int edad, String email, double sueldo) {
         super(nombre, apellido, edad, email);
         this.sueldo = sueldo;
     }
 
     
-    public int getSueldo() {
+    public double getSueldo() {
         return sueldo;
     }
 
 
-    public void setSueldo(int sueldo) {
+    public void setSueldo(double sueldo) {
         this.sueldo = sueldo;
     }
 

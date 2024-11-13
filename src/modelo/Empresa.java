@@ -18,33 +18,7 @@ public class Empresa {
         this.personas = new ArrayList<>(); // inicializamos la lista
     }
 
-    public int getid_empresa() {
-        return id_empresa;
-    }
-
-    public void setid_empresa(int id_empresa) {
-        this.id_empresa = id_empresa;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-    public String getDireccion() {
-        return direccion;
-    }
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-    public String getCuil() {
-        return cuil;
-    }
-    public void setCuil(String cuil) {
-        this.cuil = cuil;
-    }
-          
+  
     /// metodos
 
     // creo un metodo polimorfico para que pueda agregar empleados o clientes
@@ -57,6 +31,16 @@ public class Empresa {
     public List<Persona> getPersonas(){
         return personas;
     }
+    
+    // este metodo muestra en detalle los datos de una empresa que se busca por ID
+    public void getEmpresa(){
+        System.out.println(
+                "----------------------------------------------------------------------------------------------------------------------------\n" +
+                "|                                            Datos de la Empresa                                                            |\n" +
+                "----------------------------------------------------------------------------------------------------------------------------\n" +
+                "| ID: " + getid_empresa() + " | Nombre: " + getNombre() + " | CUIL: " + getCuil() + " | Dirección: " + getDireccion() + "\n" +
+                "----------------------------------------------------------------------------------------------------------------------------");
+    }
 
     // opcion 3
     // metodo encargado de mostrar los empleados que no son directivos, de una empresa. 
@@ -68,16 +52,6 @@ public class Empresa {
                 System.out.println(empleado);
             }
         });
-    }
-
-    // este metodo muestra en detalle los datos de una empresa que se busca por ID
-    public void mostrarEmpresa(){
-        System.out.println(
-                "----------------------------------------------------------------------------------------------------------------------------\n" +
-                "|                                            Datos de la Empresa                                                            |\n" +
-                "----------------------------------------------------------------------------------------------------------------------------\n" +
-                "| ID: " + getid_empresa() + " | Nombre: " + getNombre() + " | CUIL: " + getCuil() + " | Dirección: " + getDireccion() + "\n" +
-                "----------------------------------------------------------------------------------------------------------------------------");
     }
 
     // genero un metodo para mostrar los directivos
@@ -124,12 +98,34 @@ public class Empresa {
         return cliente;
     }
 
-    public Empresa crearEmpresa(int id_empresa, String nombre, String direccion, String cuil, List<Persona> personas){
-        Empresa empresa = new Empresa(id_empresa, nombre, direccion, cuil, personas);
-        return empresa;
-        
+    // GETTERS Y SETTERS
+    public int getid_empresa() {
+        return id_empresa;
     }
 
+    public void setid_empresa(int id_empresa) {
+        this.id_empresa = id_empresa;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    public String getDireccion() {
+        return direccion;
+    }
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+    public String getCuil() {
+        return cuil;
+    }
+    public void setCuil(String cuil) {
+        this.cuil = cuil;
+    }
+          
     // Este override lo modifique para que muestre solo ID y nombre, para que tenga sentido la opcion 2 que es mostrar en detalle los detalles de la empresa. 
     @Override
     public String toString() {

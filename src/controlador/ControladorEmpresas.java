@@ -35,7 +35,7 @@ public class ControladorEmpresas {
         sc.nextLine();
         for (Empresa empresa : empresas) {
             if (empresa.getid_empresa() == opcionEmpresa) {
-                empresa.mostrarEmpresa();
+                empresa.getEmpresa();
                 sinResultado = false;
             }
         }
@@ -43,8 +43,8 @@ public class ControladorEmpresas {
         if (sinResultado) {
             System.out.println("No se encontraron resultados");
         }
+        sc.close();
     }
-
     // opcion 3 - mostrar empleados de la empresa que se indique por ID 
     public void mostrarEmpleados() {
         sinResultado = true;
@@ -69,6 +69,7 @@ public class ControladorEmpresas {
         if (sinResultado) {
             System.out.println("No se encontraron resultados");
         }
+        sc.close();
     }
 
     // opcion 4 - muestro los clientes de la empresa seleccionada
@@ -87,6 +88,7 @@ public class ControladorEmpresas {
         if (sinResultado) {
             System.out.println("No se encontraron resultados");
         }
+        sc.close();
     }
 
     // opcion 5 - mostrar directivos
@@ -105,5 +107,6 @@ public class ControladorEmpresas {
         if(sinResultado){
             System.out.println("No se encontraron resultados");
         }
+        sc.close();
     }
 }

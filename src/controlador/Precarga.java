@@ -11,7 +11,9 @@ public class Precarga {
         public static List<Empresa> cargaDatos(){
             List<Empresa> empresas = new ArrayList<Empresa>();
 
-        //     creo empresas
+            // CARGA DE DATOS HARDCODE PARA PRUEBAS 
+            
+            // creo empresas
             Empresa empresaUno = new Empresa(1,"Insumo Acuario","Hungria 1222", "20-35224895-5", null);
             Empresa empresaDos = new Empresa(2,"Tech Solutions", "Av. Siempre Viva 1234", "30-67891234-6", null);
 
