@@ -19,7 +19,7 @@ public class App {
         // controladorEmpresas gestiona toda la logica de solicitudes. Se le envia los datos previamente cargados en cargaEmpresa
         ControladorEmpresas controlador = new ControladorEmpresas(cargaEmpresa);
 
-        // Menu se encuentra en carpeta la vista, se encarga de mostrar las distintas opciones disponibles: empresas, cliente, empleado, directivo. a su vez, le inyecto el controlador, para que tenga acceso directo a ControladorEmpresa
+        // Menu se encuentra en carpeta vista, se encarga de mostrar las distintas opciones disponibles: empresas, cliente, empleado, directivo. a su vez, le inyecto el controlador, para que tenga acceso directo a ControladorEmpresa
         Menu menuPrincipal = new Menu(controlador);
 
         // le paso a menuPrincipal los datos cargados

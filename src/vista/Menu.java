@@ -79,7 +79,7 @@ public final class Menu {
  
         // funcion que se auto ejecuta, permite hacer una pausa antes de mostrar el menu nuevamente
         public static void pausar() {
-            System.out.print("Presione Enter para continuar");
+            System.out.println("Presione Enter para continuar");
             try {
                 System.in.read();
             } catch (Exception e) {

@@ -58,6 +58,8 @@ public class Empresa {
         return personas;
     }
 
+    // opcion 3
+    // metodo encargado de mostrar los empleados que no son directivos, de una empresa. 
     public void mostrarEmpleados(){
         personas.forEach(persona ->{
             // busco mostrar los empleados que NO sean directivos
@@ -66,6 +68,18 @@ public class Empresa {
                 System.out.println(empleado);
             }
         });
+    }
+
+    // este metodo muestra en detalle los datos de una empresa que se busca por ID
+    public void mostrarEmpresa(){
+        System.out.println("--------------------------------------------------------\n" +
+                "| Datos de la Empresa                                   |\n" +
+                "--------------------------------------------------------\n" +
+                "| ID: " + getid_empresa() + "\n" +
+                "| Nombre: " + getNombre() + "\n" +
+                "| CUIL: " + getCuil() + "\n" +
+                "| Dirección: " + getDireccion() + "\n" +
+                "--------------------------------------------------------");
     }
 
     // genero un metodo para mostrar los directivos
@@ -118,12 +132,11 @@ public class Empresa {
         
     }
 
+    // Este override lo modifique para que muestre solo ID y nombre, para que tenga sentido la opcion 2 que es mostrar en detalle los detalles de la empresa. 
     @Override
     public String toString() {
         return  
-        "--------------------------------------------------------\n" +
-        "| Datos de la Empresa                                   |\n" +
-        "--------------------------------------------------------\n" +
+        "\n" +
         "| ID: " + getid_empresa() + "\n" +
         "| Nombre: " + getNombre() + "\n" +
         "--------------------------------------------------------";

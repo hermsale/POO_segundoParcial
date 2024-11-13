@@ -15,16 +15,19 @@ public class ControladorEmpresas {
     private int opcionEmpresa;
 
     public ControladorEmpresas(List<Empresa> empresas) {
+        // asigno a empresas lo que llega por parametro al constructor
         this.empresas = empresas;
     }
 
-    // opcion 1 - mostrar las empresas
+    // opcion 1 - mostrar todas las empresas cargadas (muestra solo ID y nombre)
     public void mostrarEmpresas() {
-        System.out.println("Empresas disponibles: ");
+        System.out.print("----------------------------------------------------------\n" +
+                            "| Empresas Disponibles                                   |\n" +
+                            "--------------------------------------------------------\n");
         System.out.println(empresas);
     }
 
-    // opcion 2 - muestra una empresa
+    // opcion 2 - muestra una empresa con todos los datos completos. se debe especificar a cual ID se hace la consulta de la empresa
     public void mostrarEmpresa() {
         sinResultado = true;
         System.out.println("Ingrese el ID de la empresa que desea obtener detalles");
@@ -32,14 +35,7 @@ public class ControladorEmpresas {
         sc.nextLine();
         for (Empresa empresa : empresas) {
             if (empresa.getid_empresa() == opcionEmpresa) {
-                System.out.println("--------------------------------------------------------\n" +
-                "| Datos de la Empresa                                   |\n" +
-                "--------------------------------------------------------\n" +
-                "| ID: " + empresa.getid_empresa() + "\n" +
-                "| Nombre: " + empresa.getNombre() + "\n" +
-                "| CUIL: " + empresa.getCuil() + "\n" +
-                "| Dirección: " + empresa.getDireccion() + "\n" +
-                "--------------------------------------------------------");
+                empresa.mostrarEmpresa();
                 sinResultado = false;
             }
         }
@@ -49,7 +45,7 @@ public class ControladorEmpresas {
         }
     }
 
-    // opcion 3 - mostrar empleados de la empresa que se indique
+    // opcion 3 - mostrar empleados de la empresa que se indique por ID 
     public void mostrarEmpleados() {
         sinResultado = true;
         System.out.println("Ingrese el ID de la empresa que desea obtener su lista de empleados");
