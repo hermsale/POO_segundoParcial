@@ -7,6 +7,8 @@ import modelo.Empresa;
 import vista.Menu;
 public class App {
     public static void main(String[] args) throws Exception {
+        // LEER README 
+        
         // MVC - se pretende que el sistema sea con arquitectura MVC Modelo Vista Controlador. Organizado por carpetas. 
         // Modelo: contendrá las clases de datos (Persona, Empleado, Cliente, Directivo, Empresa).
         // Vista: se encargará de la interacción con el usuario (podría ser la consola en este caso).
