@@ -78,6 +78,7 @@ public final class Menu {
             } while (opcion != 6);
             sc.close();
         }
+        
         // funcion que se auto ejecuta, permite hacer una pausa antes de mostrar el menu nuevamente
         public static void pausar() {
             System.out.print("Presione Enter para continuar");
