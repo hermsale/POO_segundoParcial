@@ -65,21 +65,22 @@ public final class Menu {
                     break;
                     
                     default:
+                    
                     System.out.print(
                         "--------------------------------------------------------\n" +
                         "| Ingrese una opción valida                             |\n" +
                         "--------------------------------------------------------\n"
                     );
+                    pausar();
                     break;
                     
                 }
-                // System.out.println();  
             } while (opcion != 6);
             sc.close();
         }
         // funcion que se auto ejecuta, permite hacer una pausa antes de mostrar el menu nuevamente
         public static void pausar() {
-            System.out.println("Presione Enter para continuar");
+            System.out.print("Presione Enter para continuar");
             try {
                 System.in.read();
             } catch (Exception e) {
