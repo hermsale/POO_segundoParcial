@@ -1,3 +1,14 @@
+CONSIGNAS SEGUNDO PARCIAL:
+
+Una aplicación necesita almacenar información básica sobre empresas, sus
+empleados y sus clientes.
+Ambos se caracterizan por su nombre, edad y datos personales.
+Los empleados tienen un sueldo bruto y los empleados que son directivos
+tienen una categoría.
+De los clientes además se necesita conocer su teléfono de contacto.
+La empresa tiene una dirección y un número de cuil.
+La aplicación necesita mostrar los datos de empleados y clientes. 
+
 Esta aplicación usa la estructura MVC.
     Modelo: Cliente, Directivo, Empleado, Empresa, Persona
     Vista: Menu
