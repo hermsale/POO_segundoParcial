@@ -3,6 +3,7 @@ package controlador;
 import java.util.List;
 import java.util.Scanner;
 
+import modelo.Cliente;
 import modelo.Directivo;
 import modelo.Empleado;
 import modelo.Empresa;
@@ -35,7 +36,7 @@ public class ControladorEmpresas {
         sc.nextLine();
         for (Empresa empresa : empresas) {
             if (empresa.getid_empresa() == opcionEmpresa) {
-                empresa.getEmpresa();
+                System.out.println(empresa.toStringCompleto());           
                 sinResultado = false;
             }
         }
@@ -57,7 +58,10 @@ public class ControladorEmpresas {
                 personasEmpresa.forEach(persona -> {
                     // busco mostrar los empleados que NO sean directivos
                     if (persona instanceof Empleado && !(persona instanceof Directivo)) {
+                        // Una vez que se verifica que persona es un Empleado y no un Directivo, el código convierte (hace un cast) explícitamente el objeto persona al tipo Empleado. Esto es seguro porque el instanceof ya garantizó que persona es un Empleado.
+                        // La conversión ((Empleado) persona) permite tratar al objeto como un Empleado y acceder a métodos y atributos específicos de esta clase.
                         Empleado empleado = (Empleado) persona;
+                        // imprimo cada iteracion por separado. utilizando el metodo toString de la clase Empleado
                         System.out.println(empleado);
                     }
                 });
@@ -78,7 +82,10 @@ public class ControladorEmpresas {
         sc.nextLine();
         for (Empresa empresa : empresas) {
             if (empresa.getid_empresa() == opcionEmpresa) {
-                empresa.mostrarClientes();
+                // mostrar con sout a empresa
+                Cliente cliente = empresa.mostrarClientes(); 
+                System.out.println(cliente);
+                // System.out.println(empresa.cliente);
                 sinResultado = false;
             }
         }

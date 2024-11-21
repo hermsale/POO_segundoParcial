@@ -32,27 +32,32 @@ public class Empresa {
         return personas;
     }
     
-    // este metodo muestra en detalle los datos de una empresa que se busca por ID
-    public void getEmpresa(){
-        System.out.println(
-                "----------------------------------------------------------------------------------------------------------------------------\n" +
-                "|                                            Datos de la Empresa                                                            |\n" +
-                "----------------------------------------------------------------------------------------------------------------------------\n" +
-                "| ID: " + getid_empresa() + " | Nombre: " + getNombre() + " | CUIL: " + getCuil() + " | Dirección: " + getDireccion() + "\n" +
-                "----------------------------------------------------------------------------------------------------------------------------");
-    }
+   
 
     // opcion 3
     // metodo encargado de mostrar los empleados que no son directivos, de una empresa. 
-    public void mostrarEmpleados(){
-        personas.forEach(persona ->{
+    public Empleado mostrarEmpleados(){
+        // personas.forEach(persona ->{ 
+        for(Persona persona : personas){
             // busco mostrar los empleados que NO sean directivos
             if(persona instanceof Empleado && !(persona instanceof Directivo)){
-                Empleado empleado = (Empleado) persona;
-                System.out.println(empleado);
+                // Empleado empleado = (Empleado) persona;
+            //    devuelvo persona lo convierto a tipo Empleado
+                return (Empleado) persona;
             }
-        });
+        }; 
+        return null;
     }
+
+    // Propuesta del profesor, devolver directamente empleado y que el controlador tenga el Sout
+    // public Empleado mostrarEmpleados() {
+    //     for (Persona persona : personas) {
+    //         if (persona instanceof Empleado && !(persona instanceof Directivo)) {
+    //             return (Empleado) persona; // Retorna el empleado
+    //         }
+    //     }
+    //     return null; // Retorna null si no encuentra empleados
+    // }
 
     // genero un metodo para mostrar los directivos
     public void mostrarDirectivos(){
@@ -65,13 +70,16 @@ public class Empresa {
     }
     
     // vista de los clientes cargados
-    public void mostrarClientes(){
-        personas.forEach(persona ->{
+    public Cliente mostrarClientes(){
+        // personas.forEach(persona ->{
+        for(Persona persona : personas){
             if(persona instanceof Cliente){
-                Cliente cliente = (Cliente) persona;
-                System.out.println(cliente);
+                // Cliente cliente = (Cliente) persona;
+                return (Cliente) persona;
+                // System.out.println(cliente);
             }
-        });
+        };
+        return null; // debido a que se hace un return, si o si se debe contemplar la posibilidad de que haya o no haya algo que devolver.
     }
 
     // metodo para crear instancias de empleado
@@ -133,5 +141,15 @@ public class Empresa {
         "\n"+
         "| ID: " + getid_empresa() + " | Nombre: " + getNombre() + " | \n" +
         "------------------------------------------------------------";
+    }
+    // este metodo muestra en detalle los datos de una empresa que se busca por ID
+
+    public String toStringCompleto(){
+        return
+                "----------------------------------------------------------------------------------------------------------------------------\n" +
+                "|                                            Datos de la Empresa                                                            |\n" +
+                "----------------------------------------------------------------------------------------------------------------------------\n" +
+                "| ID: " + getid_empresa() + " | Nombre: " + getNombre() + " | CUIL: " + getCuil() + " | Dirección: " + getDireccion() + "\n" +
+                "----------------------------------------------------------------------------------------------------------------------------";
     }
 }

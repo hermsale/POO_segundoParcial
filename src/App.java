@@ -28,5 +28,7 @@ public class App {
 
         menuPrincipal.mostrar();           
 
+        // correcciones - que las salidas sout se realicen en el Controlador y no en las clases como Empresa
+
     }
 }
