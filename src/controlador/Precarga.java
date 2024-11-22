@@ -28,8 +28,11 @@ public class Precarga {
              
              // creo un directivo de empresa uno
              empresaUno.crearDirectivo("Marcelo", "Juarez", 55, "Marcelo.Juarez@Insumo.com", 50000000, "Gerente");
+             empresaUno.crearDirectivo("Maria", "Juarez", 52, "Maria.Juarez@Insumo.com", 50000000, "CEO");
+
              // creo clientes de empresa uno
              empresaUno.crearCliente("Martin", "Lopez", 42, "Martin.Lopez@deheza.com", "1136529874", "Siempre Viva 1234");
+             empresaUno.crearCliente("Jose", "Mauren", 32, "Jose.Mauren@deheza.com", "1136529823", "Siempre Viva 1200");
 
 
              empresaDos.crearEmpleado("Laura", "Gomez", 28, "laura.gomez@techsolutions.com", 2500000);
@@ -37,7 +40,11 @@ public class Precarga {
              empresaDos.crearEmpleado("Pablo", "Casteñeda", 32, "pablo.casta@techsolutions.com", 1700000);
              
              empresaDos.crearCliente("Carlos", "Pérez", 40, "carlos.perez@cliente.com", "114567890", "Calle Falsa 123");
+             empresaDos.crearCliente("Marcos", "Lopez", 30, "Marcos.Lopez@cliente.com", "114567812", "Calle Falsa 121");
+             empresaDos.crearCliente("Martin", "Artaud", 23, "Martin.Artaud@cliente.com", "114567890", "Calle Falsa 123");
+
              empresaDos.crearDirectivo("Ana", "Martinez", 50, "ana.martinez@techsolutions.com", 5500000, "CEO");
+             empresaDos.crearDirectivo("Juan", "Martinez", 55, "juan.martinez@techsolutions.com", 5500000, "Director");
 
              empresas.add(empresaUno);
              empresas.add(empresaDos);

@@ -54,7 +54,7 @@ public class ControladorEmpresas {
         // recorro empresas
         for (Empresa empresa : empresas) {
             if (empresa.getid_empresa() == opcionEmpresa) {
-                List<Persona> personasEmpresa = empresa.getPersonas();
+                List<Persona> personasEmpresa = empresa.obtenerPersonas();
                 personasEmpresa.forEach(persona -> {
                     // busco mostrar los empleados que NO sean directivos
                     if (persona instanceof Empleado && !(persona instanceof Directivo)) {
@@ -73,7 +73,6 @@ public class ControladorEmpresas {
             System.out.println("No se encontraron resultados");
         }
     }
-
     // opcion 4 - muestro los clientes de la empresa seleccionada
     public void mostrarClientes() {
         sinResultado = true;
@@ -82,9 +81,14 @@ public class ControladorEmpresas {
         sc.nextLine();
         for (Empresa empresa : empresas) {
             if (empresa.getid_empresa() == opcionEmpresa) {
+                List<Persona> clientesEmpresa = empresa.obtenerPersonas();
                 // mostrar con sout a empresa
-                Cliente cliente = empresa.mostrarClientes(); 
-                System.out.println(cliente);
+                for (Persona cliente : clientesEmpresa) {
+                    if (cliente instanceof Cliente) {
+                    // Cliente cliente = empresa.mostrarClientes(); 
+                    System.out.println(cliente);
+                    }
+                }
                 // System.out.println(empresa.cliente);
                 sinResultado = false;
             }
@@ -94,7 +98,6 @@ public class ControladorEmpresas {
             System.out.println("No se encontraron resultados");
         }
     }
-
     // opcion 5 - mostrar directivos
     public void mostrarDirectivos() {
         sinResultado = true;
@@ -103,7 +106,13 @@ public class ControladorEmpresas {
         sc.nextLine();
         for (Empresa empresa : empresas) {
             if(empresa.getid_empresa() == opcionEmpresa){
-                empresa.mostrarDirectivos();
+                List<Persona> directivosEmpresa = empresa.obtenerPersonas();
+                for (Persona directivo : directivosEmpresa) {
+                    if(directivo instanceof Directivo){
+                        System.out.println(directivo);
+                    }
+                }
+                // empresa.mostrarDirectivos();
                 sinResultado=false;
             }
         }

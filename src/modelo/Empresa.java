@@ -28,7 +28,7 @@ public class Empresa {
 
 
     // devuelve a controladorEmpresas la lista de personas que posee la empresa
-    public List<Persona> getPersonas(){
+    public List<Persona> obtenerPersonas(){
         return personas;
     }
     
@@ -37,11 +37,9 @@ public class Empresa {
     // opcion 3
     // metodo encargado de mostrar los empleados que no son directivos, de una empresa. 
     public Empleado mostrarEmpleados(){
-        // personas.forEach(persona ->{ 
         for(Persona persona : personas){
             // busco mostrar los empleados que NO sean directivos
             if(persona instanceof Empleado && !(persona instanceof Directivo)){
-                // Empleado empleado = (Empleado) persona;
             //    devuelvo persona lo convierto a tipo Empleado
                 return (Empleado) persona;
             }
@@ -49,38 +47,31 @@ public class Empresa {
         return null;
     }
 
-    // Propuesta del profesor, devolver directamente empleado y que el controlador tenga el Sout
-    // public Empleado mostrarEmpleados() {
-    //     for (Persona persona : personas) {
-    //         if (persona instanceof Empleado && !(persona instanceof Directivo)) {
-    //             return (Empleado) persona; // Retorna el empleado
-    //         }
-    //     }
-    //     return null; // Retorna null si no encuentra empleados
-    // }
-
-    // genero un metodo para mostrar los directivos
-    public void mostrarDirectivos(){
-        personas.forEach(persona ->{
-            if (persona instanceof Directivo) { // verifico que cada persona sea instancia de Directivo  
-                Directivo directivo = (Directivo) persona; // si lo es, hago un casteo a persona para que lo trate como Directivo y acceda a sus propiedades
-                System.out.println(directivo); // imprimo directivo
-            }
-        });
-    }
-    
-    // vista de los clientes cargados
+    // 4) vista de los clientes cargados
     public Cliente mostrarClientes(){
-        // personas.forEach(persona ->{
         for(Persona persona : personas){
             if(persona instanceof Cliente){
                 // Cliente cliente = (Cliente) persona;
                 return (Cliente) persona;
-                // System.out.println(cliente);
+                // System.out.println(persona);
             }
         };
         return null; // debido a que se hace un return, si o si se debe contemplar la posibilidad de que haya o no haya algo que devolver.
     }
+
+    // genero un metodo para mostrar los directivos
+    public Directivo mostrarDirectivos(){
+        for (Persona persona : personas) {
+            if (persona instanceof Directivo) { // verifico que cada persona sea instancia de Directivo  
+                //Directivo directivo = (Directivo) persona; // si lo es, hago un casteo a persona para que lo trate como Directivo y acceda a sus propiedades
+                //System.out.println(directivo); // imprimo directivo
+                return (Directivo) persona;
+            }
+        };
+        return null;
+    }
+    
+    
 
     // metodo para crear instancias de empleado
     public Persona crearEmpleado(String nombre, String apellido, int edad, String email, int sueldo){
